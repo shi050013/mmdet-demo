@@ -1,10 +1,11 @@
 ---
-title: Mmdetection Detection
+title: MMDetection
 emoji: 🔥
 colorFrom: pink
 colorTo: purple
 sdk: gradio
-sdk_version: 3.0.6
+python_version: 3.9.13
+sdk_version: 3.0.9
 app_file: app.py
 pinned: false
 ---

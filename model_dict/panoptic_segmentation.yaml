@@ -1,0 +1,9 @@
+Panoptic FPN (R-50-FPN):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/panoptic_fpn/panoptic_fpn_r50_fpn_mstrain_3x_coco.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/panoptic_fpn/panoptic_fpn_r50_fpn_mstrain_3x_coco/panoptic_fpn_r50_fpn_mstrain_3x_coco_20210824_171155-5650f98b.pth
+MaskFormer (R-50):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/maskformer/maskformer_r50_mstrain_16x1_75e_coco.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/maskformer/maskformer_r50_mstrain_16x1_75e_coco/maskformer_r50_mstrain_16x1_75e_coco_20220221_141956-bc2699cb.pth
+MaskFormer (Swin-L):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/maskformer/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/maskformer/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco_20220326_221612-061b4eb8.pth
