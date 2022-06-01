@@ -7,3 +7,9 @@ MaskFormer (R-50):
 MaskFormer (Swin-L):
     config: https://github.com/open-mmlab/mmdetection/tree/master/configs/maskformer/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco.py
     model: https://download.openmmlab.com/mmdetection/v2.0/maskformer/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco/maskformer_swin-l-p4-w12_mstrain_64x1_300e_coco_20220326_221612-061b4eb8.pth
+Mask2Former (R-50):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/mask2former/mask2former_r50_lsj_8x2_50e_coco-panoptic.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/mask2former/mask2former_r50_lsj_8x2_50e_coco-panoptic/mask2former_r50_lsj_8x2_50e_coco-panoptic_20220326_224516-11a44721.pth
+Mask2Former (Swin-L):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/mask2former/mask2former_swin-l-p4-w12-384-in21k_lsj_16x1_100e_coco-panoptic.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/mask2former/mask2former_swin-l-p4-w12-384-in21k_lsj_16x1_100e_coco-panoptic/mask2former_swin-l-p4-w12-384-in21k_lsj_16x1_100e_coco-panoptic_20220407_104949-d4919c44.pth
