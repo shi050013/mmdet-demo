@@ -18,7 +18,9 @@ if os.getenv('SYSTEM') == 'spaces':
     subprocess.call('pip uninstall -y opencv-python-headless'.split())
     subprocess.call('pip install opencv-python-headless'.split())
 
+import cv2
 import gradio as gr
+import numpy as np
 
 from model import Model
 
@@ -48,6 +50,15 @@ def extract_tar() -> None:
         return
     with tarfile.open('mmdet_configs/configs.tar') as f:
         f.extractall('mmdet_configs')
+
+
+def update_input_image(image: np.ndarray) -> dict:
+    if image is None:
+        return gr.Image.update(value=None)
+    scale = 1500 / max(image.shape[:2])
+    if scale < 1:
+        image = cv2.resize(image, None, fx=scale, fy=scale)
+    return gr.Image.update(value=image)
 
 
 def update_model_name(model_type: str) -> dict:
@@ -131,6 +142,10 @@ This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https
         gr.Markdown(
             '<center><img src="https://visitor-badge.glitch.me/badge?page_id=hysts.mmdetection" alt="visitor badge"/></center>'
         )
+
+        input_image.change(fn=update_input_image,
+                           inputs=[input_image],
+                           outputs=[input_image])
 
         model_type.change(fn=update_model_name,
                           inputs=[model_type],
