@@ -28,12 +28,12 @@ PointRend (R-50-FPN):
 DetectoRS (HTC + ResNet-101):
     config: https://github.com/open-mmlab/mmdetection/tree/master/configs/detectors/detectors_htc_r101_20e_coco.py
     model: https://download.openmmlab.com/mmdetection/v2.0/detectors/detectors_htc_r101_20e_coco/detectors_htc_r101_20e_coco_20210419_203638-348d533b.pth
-    #SOLOv2 (R-50):
-    #    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/solov2/solov2_r50_fpn_3x_coco.py
-    #    model: https://download.openmmlab.com/mmdetection/v2.0/solov2/solov2_r50_fpn_3x_coco/solov2_r50_fpn_3x_coco_20220512_125856-fed092d4.pth
-    #SOLOv2 (X-101 (DCN)):
-    #    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/solov2/solov2_x101_dcn_fpn_3x_coco.py
-    #    model: https://download.openmmlab.com/mmdetection/v2.0/solov2/solov2_x101_dcn_fpn_3x_coco/solov2_x101_dcn_fpn_3x_coco_20220513_214337-aef41095.pth
+SOLOv2 (R-50):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/solov2/solov2_r50_fpn_3x_coco.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/solov2/solov2_r50_fpn_3x_coco/solov2_r50_fpn_3x_coco_20220512_125856-fed092d4.pth
+SOLOv2 (X-101 (DCN)):
+    config: https://github.com/open-mmlab/mmdetection/tree/master/configs/solov2/solov2_x101_dcn_fpn_3x_coco.py
+    model: https://download.openmmlab.com/mmdetection/v2.0/solov2/solov2_x101_dcn_fpn_3x_coco/solov2_x101_dcn_fpn_3x_coco_20220513_214337-aef41095.pth
 SCNet (X-101-64x4d-FPN):
     config: https://github.com/open-mmlab/mmdetection/tree/master/configs/scnet/scnet_x101_64x4d_fpn_20e_coco.py
     model: https://download.openmmlab.com/mmdetection/v2.0/scnet/scnet_x101_64x4d_fpn_20e_coco/scnet_x101_64x4d_fpn_20e_coco-fb09dec9.pth
