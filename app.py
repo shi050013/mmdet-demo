@@ -84,17 +84,7 @@ def main():
     extract_tar()
     model = Model(DEFAULT_MODEL_NAME, args.device)
 
-    css = '''
-h1#title {
-  text-align: center;
-}
-img#overview {
-  max-width: 1000px;
-  max-height: 600px;
-}
-'''
-
-    with gr.Blocks(theme=args.theme, css=css) as demo:
+    with gr.Blocks(theme=args.theme, css='style.css') as demo:
         gr.Markdown('''<h1 id="title">MMDetection</h1>
 
 This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection).
