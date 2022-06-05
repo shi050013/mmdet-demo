@@ -20,7 +20,7 @@ import cv2
 import gradio as gr
 import numpy as np
 
-from model import Model
+from model import AppModel
 
 TITLE = '# MMDetection'
 DESCRIPTION = '''
@@ -67,7 +67,7 @@ def update_input_image(image: np.ndarray) -> dict:
 
 
 def update_model_name(model_type: str) -> dict:
-    model_dict = getattr(Model, f'{model_type.upper()}_MODEL_DICT')
+    model_dict = getattr(AppModel, f'{model_type.upper()}_MODEL_DICT')
     model_names = list(model_dict.keys())
     model_name = DEFAULT_MODEL_NAMES[model_type]
     return gr.Dropdown.update(choices=model_names, value=model_name)
@@ -88,7 +88,7 @@ def set_example_image(example: list) -> dict:
 def main():
     args = parse_args()
     extract_tar()
-    model = Model(DEFAULT_MODEL_NAME, args.device)
+    model = AppModel(DEFAULT_MODEL_NAME, args.device)
 
     with gr.Blocks(theme=args.theme, css='style.css') as demo:
         gr.Markdown(TITLE)
@@ -147,8 +147,9 @@ def main():
                           outputs=redraw_button)
 
         model_name.change(fn=model.set_model, inputs=model_name, outputs=None)
-        run_button.click(fn=model.detect_and_visualize,
+        run_button.click(fn=model.run,
                          inputs=[
+                             model_name,
                              input_image,
                              visualization_score_threshold,
                          ],

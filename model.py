@@ -51,6 +51,7 @@ class Model:
     def __init__(self, model_name: str, device: str | torch.device):
         self.device = torch.device(device)
         self._load_all_models_once()
+        self.model_name = model_name
         self.model = self._load_model(model_name)
 
     def _load_all_models_once(self) -> None:
@@ -62,6 +63,9 @@ class Model:
         return init_detector(dic['config'], dic['model'], device=self.device)
 
     def set_model(self, name: str) -> None:
+        if name == self.model_name:
+            return
+        self.model_name = name
         self.model = self._load_model(name)
 
     def detect_and_visualize(
@@ -96,3 +100,13 @@ class Model:
                                      text_color=(200, 200, 200),
                                      mask_color=None)
         return vis[:, :, ::-1]  # BGR -> RGB
+
+
+class AppModel(Model):
+    def run(
+        self, model_name: str, image: np.ndarray, score_threshold: float
+    ) -> tuple[list[np.ndarray] | tuple[list[np.ndarray],
+                                        list[list[np.ndarray]]]
+               | dict[str, np.ndarray], np.ndarray]:
+        self.set_model(model_name)
+        return self.detect_and_visualize(image, score_threshold)
