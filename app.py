@@ -22,6 +22,13 @@ import numpy as np
 
 from model import Model
 
+TITLE = '# MMDetection'
+DESCRIPTION = '''
+This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection).
+<img id="overview" alt="overview" src="https://user-images.githubusercontent.com/12907710/137271636-56ba1cd2-b110-4812-8221-b4c120320aa9.png" />
+'''
+FOOTER = '<img id="visitor-badge" src="https://visitor-badge.glitch.me/badge?page_id=hysts.mmdetection" alt="visitor badge" />'
+
 DEFAULT_MODEL_TYPE = 'detection'
 DEFAULT_MODEL_NAMES = {
     'detection': 'YOLOX-l',
@@ -80,16 +87,12 @@ def set_example_image(example: list) -> dict:
 
 def main():
     args = parse_args()
-
     extract_tar()
     model = Model(DEFAULT_MODEL_NAME, args.device)
 
     with gr.Blocks(theme=args.theme, css='style.css') as demo:
-        gr.Markdown('''<h1 id="title">MMDetection</h1>
-
-This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection).
-<center><img id="overview" alt="overview" src="https://user-images.githubusercontent.com/12907710/137271636-56ba1cd2-b110-4812-8221-b4c120320aa9.png" /></center>
-''')
+        gr.Markdown(TITLE)
+        gr.Markdown(DESCRIPTION)
 
         with gr.Row():
             with gr.Column():
@@ -127,27 +130,23 @@ This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https
                                         samples=[[path.as_posix()]
                                                  for path in paths])
 
-        gr.Markdown(
-            '<center><img src="https://visitor-badge.glitch.me/badge?page_id=hysts.mmdetection" alt="visitor badge"/></center>'
-        )
+        gr.Markdown(FOOTER)
 
         input_image.change(fn=update_input_image,
-                           inputs=[input_image],
-                           outputs=[input_image])
+                           inputs=input_image,
+                           outputs=input_image)
 
         model_type.change(fn=update_model_name,
-                          inputs=[model_type],
-                          outputs=[model_name])
+                          inputs=model_type,
+                          outputs=model_name)
         model_type.change(fn=update_visualization_score_threshold,
-                          inputs=[model_type],
-                          outputs=[visualization_score_threshold])
+                          inputs=model_type,
+                          outputs=visualization_score_threshold)
         model_type.change(fn=update_redraw_button,
-                          inputs=[model_type],
-                          outputs=[redraw_button])
+                          inputs=model_type,
+                          outputs=redraw_button)
 
-        model_name.change(fn=model.set_model,
-                          inputs=[model_name],
-                          outputs=None)
+        model_name.change(fn=model.set_model, inputs=model_name, outputs=None)
         run_button.click(fn=model.detect_and_visualize,
                          inputs=[
                              input_image,
@@ -163,10 +162,10 @@ This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https
                                 prediction_results,
                                 visualization_score_threshold,
                             ],
-                            outputs=[visualization])
+                            outputs=visualization)
         example_images.click(fn=set_example_image,
-                             inputs=[example_images],
-                             outputs=[input_image])
+                             inputs=example_images,
+                             outputs=input_image)
 
     demo.launch(
         enable_queue=args.enable_queue,
