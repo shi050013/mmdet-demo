@@ -9,8 +9,10 @@ import subprocess
 import tarfile
 
 if os.getenv('SYSTEM') == 'spaces':
-    subprocess.call('pip uninstall -y mmcv-full'.split())
-    subprocess.call('pip install mmcv-full==1.5.2'.split())
+    import mim
+
+    mim.uninstall('mmcv-full', confirm_yes=True)
+    mim.install('mmcv-full==1.5.2', is_yes=True)
 
     subprocess.call('pip uninstall -y opencv-python'.split())
     subprocess.call('pip uninstall -y opencv-python-headless'.split())
