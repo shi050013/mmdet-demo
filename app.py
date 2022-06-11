@@ -24,8 +24,8 @@ import numpy as np
 
 from model import AppModel
 
-TITLE = '# MMDetection'
-DESCRIPTION = '''
+DESCRIPTION = '''# MMDetection
+
 This is an unofficial demo for [https://github.com/open-mmlab/mmdetection](https://github.com/open-mmlab/mmdetection).
 <img id="overview" alt="overview" src="https://user-images.githubusercontent.com/12907710/137271636-56ba1cd2-b110-4812-8221-b4c120320aa9.png" />
 '''
@@ -93,7 +93,6 @@ def main():
     model = AppModel(DEFAULT_MODEL_NAME, args.device)
 
     with gr.Blocks(theme=args.theme, css='style.css') as demo:
-        gr.Markdown(TITLE)
         gr.Markdown(DESCRIPTION)
 
         with gr.Row():
