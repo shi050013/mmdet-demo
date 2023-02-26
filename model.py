@@ -6,7 +6,7 @@ import huggingface_hub
 import numpy as np
 import torch
 import torch.nn as nn
-import yaml
+import yaml  # type: ignore
 from mmdet.apis import inference_detector, init_detector
 
 
@@ -48,8 +48,9 @@ class Model:
         'model_dict/panoptic_segmentation.yaml')
     MODEL_DICT = DETECTION_MODEL_DICT | INSTANCE_SEGMENTATION_MODEL_DICT | PANOPTIC_SEGMENTATION_MODEL_DICT
 
-    def __init__(self, model_name: str, device: str | torch.device):
-        self.device = torch.device(device)
+    def __init__(self, model_name: str):
+        self.device = torch.device(
+            'cuda:0' if torch.cuda.is_available() else 'cpu')
         self._load_all_models_once()
         self.model_name = model_name
         self.model = self._load_model(model_name)
