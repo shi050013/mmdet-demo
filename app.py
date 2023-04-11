@@ -7,12 +7,13 @@ import pathlib
 import subprocess
 import tarfile
 
-if os.getenv('SYSTEM') == 'spaces':
+if True:
     import mim
 
     mim.uninstall('mmcv-full', confirm_yes=True)
     mim.install('mmcv-full==1.5.2', is_yes=True)
-
+    mim.install('mmdet==2.25.0')
+    
     subprocess.call('pip uninstall -y opencv-python'.split())
     subprocess.call('pip uninstall -y opencv-python-headless'.split())
     subprocess.call('pip install opencv-python-headless==4.5.5.64'.split())
