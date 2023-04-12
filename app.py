@@ -37,13 +37,11 @@ DEFAULT_MODEL_NAMES = {
 DEFAULT_MODEL_NAME = DEFAULT_MODEL_NAMES[DEFAULT_MODEL_TYPE]
 
 
-'''
     def extract_tar() -> None:
     if pathlib.Path('mmdet_configs/configs').exists():
         return
     with tarfile.open('mmdet_configs/configs.tar') as f:
         f.extractall('mmdet_configs')
-        '''
 
 
 def update_input_image(image: np.ndarray) -> dict:
