@@ -9,12 +9,12 @@ import tarfile
 import mim
 
 
-    mim.install('mmcv-full==1.5.2')
-    mim.install('mmdet==2.25.0')
+mim.install('mmcv-full==1.5.2')
+mim.install('mmdet==2.25.0')
     
-    subprocess.call('pip uninstall -y opencv-python'.split())
-    subprocess.call('pip uninstall -y opencv-python-headless'.split())
-    subprocess.call('pip install opencv-python-headless==4.5.5.64'.split())
+subprocess.call('pip uninstall -y opencv-python'.split())
+subprocess.call('pip uninstall -y opencv-python-headless'.split())
+subprocess.call('pip install opencv-python-headless==4.5.5.64'.split())
 
 import cv2
 import gradio as gr
