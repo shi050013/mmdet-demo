@@ -9,7 +9,7 @@ import tarfile
 import mim
 
 
-mim.install('mmcv-full==1.5.2')
+mim.install('mmcv-full==1.6.0')
 mim.install('mmdet==2.25.0')
     
 subprocess.call('pip uninstall -y opencv-python'.split())
