@@ -8,7 +8,7 @@ import subprocess
 import tarfile
 import mim
 
-    mim.uninstall('mmcv-full')
+
     mim.install('mmcv-full==1.5.2')
     mim.install('mmdet==2.25.0')
     
