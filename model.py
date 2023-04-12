@@ -46,7 +46,7 @@ class Model:
         'model_dict/instance_segmentation.yaml')
     PANOPTIC_SEGMENTATION_MODEL_DICT = _load_model_dict(
         'model_dict/panoptic_segmentation.yaml')
-    #MODEL_DICT = DETECTION_MODEL_DICT | INSTANCE_SEGMENTATION_MODEL_DICT | PANOPTIC_SEGMENTATION_MODEL_DICT
+    MODEL_DICT = DETECTION_MODEL_DICT | INSTANCE_SEGMENTATION_MODEL_DICT | PANOPTIC_SEGMENTATION_MODEL_DICT
 
     def __init__(self, model_name: str):
         self.device = torch.device(
