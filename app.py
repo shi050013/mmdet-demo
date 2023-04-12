@@ -6,12 +6,10 @@ import os
 import pathlib
 import subprocess
 import tarfile
+import mim
 
-if True:
-    import mim
-
-    mim.uninstall('mmcv-full', confirm_yes=True)
-    mim.install('mmcv-full==1.5.2', is_yes=True)
+    mim.uninstall('mmcv-full')
+    mim.install('mmcv-full==1.5.2')
     mim.install('mmdet==2.25.0')
     
     subprocess.call('pip uninstall -y opencv-python'.split())
