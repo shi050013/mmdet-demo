@@ -111,3 +111,4 @@ class AppModel(Model):
                | dict[str, np.ndarray], np.ndarray]:
         self.set_model(model_name)
         return self.detect_and_visualize(image, score_threshold)
+#1
